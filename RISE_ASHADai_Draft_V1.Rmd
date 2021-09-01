@@ -1,0 +1,267 @@
+---
+title: "Using a comparative mixed-methods analysis to understand positioning and connectedness among health workers and perinatal behaviors"
+author: 
+   - Oskar Burger, University of Texas, Austin
+   - Faiz Hashmi, University of Texas, Austin
+   - Maciej J. Dańko, Max Planck Institute for Demographic Research
+   - Hannah Lunkenheimer, University of Texas, Austin
+   - Santosh Akhauri, Project Concern International
+   - Sudipta Mondal, Project Concern International
+   - Indrajit Chaudhuri,  Project Concern International
+   - Emily Little, Nurterly 
+   - Tracy Johnson, Gates Foundation
+   - Cristine Legare, University of Texas, Austin
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: bookdown::word_document2
+bibliography: 
+   - zoteroout.bib 
+   - packages.bib 
+editor_options: 
+  chunk_output_type: console
+  markdown: 
+    wrap: sentence
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.path='Figs/',
+                      echo=FALSE, warning=FALSE, message=FALSE)
+```
+
+```{r preliminaries}
+options(scipen=4)
+
+libs = c('tidyverse','GenKern','ggthemes','haven','tidyr','readxl','xlsx','tibble','lme4','sjlabelled','sjmisc','sjPlot','pander','vtable','nnet','kableExtra','scales','data.table','knitr','patchwork','bookdown') # added tible
+invisible(lapply(libs,library, character.only=T))
+
+```
+
+Planned outlet: PLOS Global Public Health
+
+# Abstract {.unnumbered}
+
+------------------------------------------------------------------------
+
+## Comment to project RISE internal reviewers:: {.unnumbered}
+
+------------------------------------------------------------------------
+
+# Introduction {.unnumbered}
+
+The government of India started the rural health mission in 2005, which launched the ASHA program.
+Since then, many studies have shown that ASHA's facilitate greater uptake of health behaviors but many also conclude that there is a great deal yet to be learned about how and why ASHA's influence behavior.
+This includes barriers to behavior change, community perception and acceptance of the ASHA's role, and the difficult connections between traditional and biomedical ways of trying to ensure maternal and child health.
+
+In this study we take an in depth look at the ASHA's positioning relative to household and public health behaviors in the community she serves by comparing her influence on behavior to that of the Dai's.
+Dais are traditional birth attendants, who are not aligned with the medical system but have a much deeper cultural history in the region.
+
+In our mixed-methods analysis we address the following:
+
+-   community perceptions of the ASHA and Dai gained via focus group discussions, and key informant interviews with women, local influencers of many different types, and with Dais and ASHAs themselves.
+
+    -   which duties are appreciated - and, more importantly, which are seen as associated with each
+
+    -   this analysis reveals several interesting points about the ASHA's role.
+        first, she is seen as a connector, in a sense very close to her role description in the NRHM.
+        Second, this role as a connector has the under-appreciated affect of placing her in a constant state of being between households and the medical system.
+        This is where we learned that ASHAs are seen as 'outside the home' and Dais are seen as 'inside'.
+        And the fact that a traditional health worker is 'in the home' may limit the ASHA's influence there.
+        Moreover, some noted that the services associated with the Dai and the payments she receives for assisting with delivery have both likely declined in time.
+
+    -   These results prompted a closer look at the behaviors associated with ASHAs and Dais, respectively, in an effort to learn about barriers to ASHA service delivery and opportunities for ways to extend her capacities, make her more effective, etc.
+
+-   Our approach considers that behaviors do not exist in isolation and may be connected in ways not immediately apparent to outsiders.
+
+    -   To asses this we examine the influence of ASHAs and Dais on 19 maternal perinatal behaviors.
+        11 of these have a clear biomedical relevance and 8 are considered neutral with respect to health.
+
+        -   The selection of these behaviors for evaluation with our quantitative tool was also based on our qualitative discussions.
+
+        -   ASHAs and Dais have very different profiles of influence and these profiles very much support and complement the qualitative insights that ASHAs and Dais affect different kinds of behaviors or occupy different 'positions' in the cultural space of maternal health behavior and belief.
+
+        -   We also find that many of the behaviors affected by Dais cluster together and, unfortunately, involve many behaviors that are not recommended from a health perspective.
+
+-   We have a nuanced view of the kinds of behaviors ASHAs and Dais affect and how those indicate really different 'positions' in this cultural system.
+
+    -   The question is, what do we do with this information?
+
+        -   Is there a way to leverage a more positive tie between ASHAs and Dais?
+
+        -   while they indirectly compete for birth-related incentives, most indicators are that they see each other in a positive light.
+
+        -   Dais continue to be valued and powerful perinatal health influencers.
+
+## Motivation
+
+## Rationale
+
+## Research Questions {.unnumbered}
+
+# Methods {.unnumbered}
+
+## Participant Sampling and Recruitment {.unnumbered}
+
+Project RISE investigators recruited and interviewed participants during a three-month period from June to August 2019.
+
+<!-- 1200 recent mothers and 400 ASHAs (the analysis here is primarily on the responses of the 1200 Mothers). Three women were recruited for each of the 400 ASHAs, for a total of 1200. -->
+
+Sampling and recruitment went as follows: Bihar has three major dialects of Hindi: Magahi, Maithili, and Bhojpuri.
+The region where Maithili is spoken covers a much larger area than the other two.
+For this reason, one district was sampled from the regions where Magahi and Bhojpuri are spoken, and two were sampled from the region where Maithili is spoken (Table \@ref(tab:dialects)).
+
+<caption>
+
+(\#tab:dialects) The sampled districts and associated dialects for this study in Bihar
+
+</caption>
+
++-----------------------------------+-----------------------------------+
+| **District**                      | **Dialect**                       |
++:=================================:+:=================================:+
+| Gaya                              | Magahi                            |
++-----------------------------------+-----------------------------------+
+| Purnia                            | Maithili                          |
++-----------------------------------+-----------------------------------+
+| Samastipur                        | Maithili                          |
++-----------------------------------+-----------------------------------+
+| Purba Champaran                   | Bhojpuri                          |
++-----------------------------------+-----------------------------------+
+
+------------------------------------------------------------------------
+
+Within each of these four districts, two blocks were randomly sampled, and from within each of the eight selected blocks 50 Anganwadi Centers (AWCs) were randomly sampled.
+AWCs were the focal sampling unit because these represent the catchment areas for ASHAs.
+This led to the recruitment of 400 ASHAs (50 AWCs X 8 Blocks).
+For the sample of recent mothers, three women were recruited from each of these 400 AWCs, meaning that we have three beneficiaries for each ASHA (with some slight variations around this, but in the majority of cases this ratio held).
+'Recent' mothers are defined as having given birth within the previous six months.
+In total, we interviewed 1200 recent mothers and 400 ASHAs.
+The analysis here is primarily on the responses of the 1200 Mothers, and the ASHA catchment areas were the sampling unit in participant recruitment.
+
+Before interviewing the sample of 1200 women, we conducted focus group discussions with recent mothers and mothers-in-law in order to gain a wider qualitative understanding for perinatal behavior and belief.
+We also used these discussions as one source of information informing the questions and options on the survey.
+In the focus group discussions we learned about many behaviors that are not usually the focus of health initiatives, but were often referred to by the women who participated in the discussions.
+In the behaviors analyzed below, we have working and fasting while pregnant and avoiding cereal for the first week postpartum as biomedically relevant target behaviors, which were included in the quantitative survey because they were mentioned in the focus group discussions.
+
+## Focal Behaviors {.unnumbered}
+
+```{r cdfin}
+cdf = readRDS('data/cdf.rds')
+
+```
+
+```{r tabbehavecounts}
+figQtable = read.csv("ext_tabs/appendix_ynquestionkey.csv", stringsAsFactors=FALSE) %>% arrange(Category) %>%
+  filter(!Category %in% c('Neutral'),
+         !Variable.name %in% c("yn_dietincpp","yn_dietincpreg"))
+
+behavecounts = cdf %>% select(Sample, as.vector(figQtable$Variable.name)) %>%
+  group_by(Sample) %>%
+  summarize(across(yn_hidepreg:yn_tibf, sum, na.rm=T)) %>%
+  pivot_longer(., cols = yn_hidepreg:yn_tibf, names_to = 'behavior', values_to = 'count') %>%
+  mutate(percent = case_when(Sample == 'ASHAs' ~ count/400*100, 
+                             Sample == 'Mothers' ~ count/1200*100),
+         percent = round(percent,1))
+
+bhc2 = behavecounts %>%
+  left_join(x = behavecounts %>% filter(Sample == 'ASHAs') %>% select(-Sample), y = behavecounts %>% filter(Sample =='Mothers') %>% select(-Sample), by = 'behavior', 
+             suffix = c(' ASHA', ' Mother')) %>%
+  mutate(`difference in percent`= round(`percent Mother` - `percent ASHA`)) %>% 
+  mutate(behavior = plyr::mapvalues(behavior, figQtable$Variable.name, figQtable$Figure.Label)) %>%
+  left_join(., figQtable %>% select(Figure.Label, Category, `rec.response`,Order), by = c('behavior' = 'Figure.Label')) %>%
+  arrange(Order)
+
+bhc3 = left_join(bhc2, figQtable %>% select(Figure.Label,Response.explanation), by = c('behavior' = 'Figure.Label')) %>%
+  rename(Behavior = behavior, Definition = Response.explanation, Count = `count Mother`, Percent = `percent Mother`, `Rec response` = `rec.response`) %>%
+  select(Behavior, `Rec response`,Definition, everything()) %>%
+  select(-contains('difference'))
+
+# library('flextable')
+#flextable(bhc2 %>% select(-Category))
+
+kable(bhc3 %>% select(-Category, -contains('ASHA'),-Order), 'pipe', caption = 'Counts and percentages of each sample responding \'yes\' to the health behaviors analyzed in this study.') #%>% 
+# kableExtra::pack_rows(index = table(fct_inorder(bhc2$Category))) #%>% kable_styling(bootstrap_options = c("striped", "hover"))
+
+```
+
+------------------------------------------------------------------------
+
+For the analysis below, each of the behaviors is analyzed with respect to biomedical recommendations.
+For some behaviors the recommendation is to do the behavior and in these cases 'yes' is the recommended response.
+For others, the recommendation is to not do the behavior and 'no' is the recommended response.
+Effectively, these latter cases where 'no' is the recommended response are reverse coded such that the question is 'did the participant do the recommended behavior'?
+
+## Influencers {.unnumbered}
+
+Each of the behaviors in Table \@ref(tab:tabbehavecounts) can be influenced by several possible sources.
+The options that participants could name for sources of influence for each behavior are listed in Table \@ref(tab:influencers).
+
+<caption>
+
+(\#tab:influencers) Descriptions for each influencer category assessed in the analysis below.
+
+</caption>
+
++---------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---+---+
+| Influencer    | Description                                                                                                                                                                                                                                        |   |   |
++===============+====================================================================================================================================================================================================================================================+===+===+
+| ASHA          | Accredited Social Health Activist, a government-trained female CHW selected from the community. ASHAs work as an interface between the community and the public health system.                                                                     |   |   |
++---------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---+---+
+| ANM           | Auxiliary Nurse Midwife, a type of CHW based at a health sub-center or Primary health center. ANM's responsibilities include family planning, immunization, infectious disease prevention and care, in addition to maternal health and childbirth. |   |   |
++---------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---+---+
+| GovDoc        | Government Doctor is a registered medical practitioner who works at public hospitals. GovDoc's are responsible for the proper functioning of the hospital, and activities in relation to NRHM and other National Programs.                         |   |   |
++---------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---+---+
+| Privclinic    | Private clinic - A clinic associated with the non-governmental (private) medical system                                                                                                                                                            |   |   |
++---------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---+---+
+| RMP           | Rural medical practitioner - often associated with local pharmacies, in many parts of Bihar these are the nearest option for health advice or basic services. They are non certified and of variable quality.                                      |   |   |
++---------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---+---+
+| Fam           | Family - family members living in the mother's household, primarily husband and mother-in-law                                                                                                                                                      |   |   |
++---------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---+---+
+| no_one        | No one - a category on the survey indicating that the respondent did not readily associate the behavior, nor their proclivity to do it, with any specific source of influence                                                                      |   |   |
++---------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---+---+
+| Friendrelneig | Friends, relatives, or neighbors - sources of influence in the immediate vicinity of the respondent, but outside the household                                                                                                                     |   |   |
++---------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---+---+
+| Dai           | A traditional birth attendant, common and culturally important in Bihar and many other areas of India                                                                                                                                              |   |   |
++---------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---+---+
+
+------------------------------------------------------------------------
+
+Importantly, during the survey, each participant is asked about the source of influence regardless of the response.
+That is, we ask participants who the source of influence was in cases where they did have a hospital delivery and in cases where they did not, in cases where they did avoid cereal postpartum and in cases where they did not, etc.
+For each of these behaviors, participants spontaneously mentioned the sources of influence, which were recorded to a list of likely options that had been pre-populated (based on pre-survey focus group discussions and piloting) using data collection tablets.
+
+## Analysis Procedure {.unnumbered}
+
+We use logistic regressions to assess the effect of each influencer on each behavior.
+The response variable is the yes/no answer representing the respondent's alignment with biomedical recommendations (Table \@ref(tab:tabbehavecounts)). For estimating the effects of each influencer on each behavior we account for interactions among influencers and behaviors. To do this we used a model selection algorithm. We start with a saturated model that includes all possible behavior by influencer interactions and then use a backward model selection procedure [@mantel1970] to sequentially drop interactions that do not optimize model fit evaluated by AICc (Second-order Aikike Information Criteria) [@burnham2002].
+This sequential dropping of irrelevant interactions eventually results in the most parsimonious model.
+This final selected model is then used to estimate probabilities that mothers engage in each behavior.
+By using predicted probabilities computed from the final model, we include the 'total effect' of all retained interactions as well as controls.
+
+The control variables in both models are: **age** (categorical), **age at marriage** (categorical), **parity** (categorical and based on number of total children at time of interview), **education** (categorical), **wealth** (categorical, measured as quintiles based on a principle component analysis of a multi-item questionnaire).
+
+To compute an individual wealth score we used a 36-item inventory in the questionnaire.
+This includes questions about possessions and household characteristics such as the type of toilet, type of house, and items such as radio, bicycle, car, computer, tractor, etc.
+The responses to these questions were reduced to a single latent wealth factor using principle component analysis (Base R function prcomp(), @R-base).
+
+These controls were included in addition to the categorical variable for each question and a dummy variable for each influencer.
+Participants could report multiple influencers for each question.\
+To validate the selected model we calculated variance inflation factors using R package car [@R-car].
+If individual variables have large effects inflating the variance of the model then they may be problematically correlated with other variables in the model.
+There are many recommendations for how large a variance inflation factor should be before it should be removed from a model.
+Our approach was to examine any variance inflation factors above 5.0 and to remove them sequentially starting with the maximum value.
+
+# Results {.unnumbered}
+
+## Descriptives {.unnumbered}
+
+<!-- #### Maternal health score  -->
+
+<!-- Maternal health score, histogram or something. Maybe don't even mention it as a result?  -->
+
+### Independent Variables {.unnumbered}
+
+# Supplementary Online Material {.unnumbered}
+
+```{}
+```
+
+# References Cited {.unnumbered}
